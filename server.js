@@ -22,6 +22,16 @@ wss.on('connection', (ws, req) => {
         if (client !== ws && client.readyState === WebSocket.OPEN) {
           // Convert the JSON back to a string to send it as a message
           const jsonString = JSON.stringify(jsonData);
+
+        //   {
+        //     "name": "relay4",
+        //     "state": false,
+        //     "id": 4,
+        //     "isONTimerActive": false,
+        //     "isOFFTimerActive": false,
+        //     "onTimer": "1:30",
+        //     "offTimer": "2:45"
+        // }
           client.send(jsonString);
           console.log(jsonString);
         }
